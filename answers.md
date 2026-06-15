@@ -17,11 +17,6 @@ Explanation: Targets the size field using the quantifier '{7}' to match exactly 
 ## Task 5
 Command: `grep -v '^#' firewall.log | sed -E 's/^([0-9]{4}-[0-9]{2}-[0-9]{2}) [0-9:]+ ([A-Z]+) ([A-Z]+) .*/\1 \2 \3/' | head -n 5`
 Result: 
-#Version 1.5
-#Software: Microsoft Windows Firewall
-#Time Format: local
-#Fields: date time action protocol src-ip dst-ip src-port dst-port size
-2018-05-25 FORWARD TCP
 Result with proper organization:
 2018-05-25 FORWARD TCP
 2018-02-22 FORWARD UDP
