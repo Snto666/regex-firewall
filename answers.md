@@ -31,3 +31,10 @@ Explanation: Combines literal field matching with positional reasoning. Matches 
 Command: `grep -E ' [0-9]{4}-[0-9]{2}-[0-9]{2} 0[0-2]:[0-9]{2}:[0-9]{2}' firewall.log | wc -l`
 Result: 0
 Explanation: Uses a character-class range '0[0-2]' to filter the hour digit, effectively capturing times between 00:00:00 and 02:59:59. The regex is anchored to the time field following the date.
+## Bonus
+Command: `grep -E '^[^ ]+$'`
+Result: 
+webhost001
+webhost002
+proxy_07
+Explanation: The negated character class '[^ ]' matches any character except a space. Anchoring with '^' (start) and '$' (end) ensures the entire string contains no spaces, successfully filtering out "that server is broken".
