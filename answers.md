@@ -10,3 +10,7 @@ Explanation: Employs an extended regex (-E) with the alternation operator '|' in
 Command: `grep -E ' [A-Z]+ [A-Z]+ 11\.' firewall.log | wc -l`
 Result: 33217
 Explanation: Matches the source IP field by identifying the preceding action and protocol fields. The dot ('.') is escaped as '\.' to force a literal match, ensuring we target the 11. subnet specifically, rather than any character.
+## Task 4
+Command: `grep -E ' [0-9]{7}$' firewall.log | wc -l`
+Result: 2343
+Explanation: Targets the size field using the quantifier '{7}' to match exactly seven digits. The end-of-line anchor '$' ensures the match is strictly the size field, avoiding accidental matches with port numbers.
