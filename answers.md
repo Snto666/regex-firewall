@@ -23,3 +23,7 @@ Result:
 #Fields: date time action protocol src-ip dst-ip src-port dst-port size
 2018-05-25 FORWARD TCP
 Explanation: Utilizes capture groups '()' to isolate the date, action, and protocol fields. The backreferences '\1', '\2', and '\3' are used in the substitution string to rebuild the line, discarding the remaining fields.
+## Task 6
+Command: `grep -E ' ACCEPT TCP [^ ]+ [^ ]+ [^ ]+ 80 [0-9]+$' firewall.log | wc -l`
+Result: 93
+Explanation: Combines literal field matching with positional reasoning. Matches 'ACCEPT' and 'TCP', skips intermediate fields using '[^ ]+' (any non-space character), validates destination port '80', and anchors the size field at the end.
