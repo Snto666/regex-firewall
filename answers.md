@@ -14,3 +14,12 @@ Explanation: Matches the source IP field by identifying the preceding action and
 Command: `grep -E ' [0-9]{7}$' firewall.log | wc -l`
 Result: 2343
 Explanation: Targets the size field using the quantifier '{7}' to match exactly seven digits. The end-of-line anchor '$' ensures the match is strictly the size field, avoiding accidental matches with port numbers.
+## Task 5
+Command: `sed -E 's/^([0-9]{4}-[0-9]{2}-[0-9]{2}) [0-9:]+ ([A-Z]+) ([A-Z]+) .*/\1 \2 \3/' firewall.log | head -n 5`
+Result: 
+#Version 1.5
+#Software: Microsoft Windows Firewall
+#Time Format: local
+#Fields: date time action protocol src-ip dst-ip src-port dst-port size
+2018-05-25 FORWARD TCP
+Explanation: Utilizes capture groups '()' to isolate the date, action, and protocol fields. The backreferences '\1', '\2', and '\3' are used in the substitution string to rebuild the line, discarding the remaining fields.
